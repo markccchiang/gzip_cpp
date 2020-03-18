@@ -11,6 +11,7 @@ const int WINDOW_BITS = 15;
 /// Allocate memory to DataBlock and assign to a shared_ptr object.
 Data AllocateData(std::size_t size) {
     Data data(new DataBlock, [](DataBlock* p) {
+        // Define the destruction of the shared pointer
         delete[] p->ptr;
         delete p;
     });
